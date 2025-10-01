@@ -1,1 +1,1 @@
-This project is working by the honest word.
+This project works by the honest word.
