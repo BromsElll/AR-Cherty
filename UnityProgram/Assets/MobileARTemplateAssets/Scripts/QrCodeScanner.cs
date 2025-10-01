@@ -73,8 +73,8 @@ public class QrCodeScanner : MonoBehaviour
         {
             IBarcodeReader barcodeReader = new BarcodeReader();
             Result result = barcodeReader.Decode(_cameraTexture.GetPixels32(), _cameraTexture.width, _cameraTexture.height);
-            if (result != null)
-                _textOut.text = result.Text;
+            if (result != null) //result == "ключевое слово"
+                _textOut.text = result.Text; // переход на сцену 2
             else
                 _textOut.text = "FAILED TO READ QR CODE";
         }
