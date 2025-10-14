@@ -1,0 +1,17 @@
+:root {
+    /* Colors */
+    --accent-color: #C82323;
+
+    --bg-color: #eed7c5;
+
+    --header-color-main: #CF765C;
+    --header-color-alt: #F9B390;
+
+    --text-orange-color: #F97E60;
+    --text-light-color: #FFFFFF;
+
+
+    /* Animations */
+    --transition: 0.2s ease-in-out;
+}
+
