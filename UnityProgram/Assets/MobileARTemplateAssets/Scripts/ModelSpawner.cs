@@ -6,62 +6,69 @@ using System.Collections.Generic;
 
 public class ModelSpawner : MonoBehaviour
 {
-    [SerializeField] private Camera arCamera;
-    [SerializeField] private ARRaycastManager raycastManager;
+    [SerializeField] Camera arCamera;
+    [SerializeField] ARRaycastManager raycastManager;
+    List<ARRaycastHit> _hits = new List<ARRaycastHit>();
 
-    private GameObject spawnedObject;
-    private GameObject modelPrefab;
+
+    GameObject spawnedObject;
+    [SerializeField] GameObject modelPrefab;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        string modelName = PlayerPrefs.GetString("ModelName", ""); //перенос имени модели
-        Debug.Log($"[ModelSpawner] Имя модели из PlayerPrefs: {modelName}");
-        if (string.IsNullOrEmpty(modelName))
-        {
-            Debug.LogError("[ModelSpawner] Имя модели пустое!");
-            return;
-        }
-        modelPrefab = Resources.Load<GameObject>($"Models/{modelName}");
-        if (modelPrefab == null)
-        {
-            Debug.LogError($"[ModelSpawner] Не удалось найти модель по пути: Resources/Models/{modelName}");
-            return;
-        }
-        Debug.Log($"[ModelSpawner] Модель {modelName} успешно загружена!");
+        spawnedObject = null;
+
+        //string modelName = PlayerPrefs.GetString("ModelName", ""); //перенос имени модели
+        //Debug.Log($"[ModelSpawner] Имя модели из PlayerPrefs: {modelName}");
+
+
+        //if (string.IsNullOrEmpty(modelName))
+        //{
+        //    Debug.LogError("[ModelSpawner] Имя модели пустое!");
+        //    return;
+        //}
+
+        //if (modelPrefab == null)
+        //{
+        //    modelPrefab = Resources.Load<GameObject>($"Models/{modelName}"); //задание префаба
+        //}
+
+        //if (modelPrefab == null)
+        //{
+        //    Debug.LogError($"[ModelSpawner] Не удалось найти модель по пути: Resources/Models/{modelName}");
+        //    return;
+        //}
+        //Debug.Log($"[ModelSpawner] Модель {modelName} успешно загружена!");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount == 0 || modelPrefab == null)
+        if (Input.touchCount == 0) //if (Input.touchCount == 0 || modelPrefab == null)
             return;
+
         Touch touch = Input.GetTouch(0);
-        if (touch.phase != TouchPhase.Began)
-            return;
-        List<ARRaycastHit> hits = new List<ARRaycastHit>(); //попадания луча в плоскости
 
-        // Если луч пересёк реальную плоскость (распознанную AR Plane Manager), hits заполнится
-        if (raycastManager.Raycast(touch.position, hits, TrackableType.PlaneWithinPolygon))
+        if (raycastManager.Raycast(touch.position, _hits))
         {
-            //Первая точка пересечения (самая близкая)
-            Pose hitPose = hits[0].pose;
+            if (touch.phase == TouchPhase.Began)
+                SpawnPrefab(_hits[0].pose.position);
 
-            // Если модель ещё не создана — она создаётся
-            if (spawnedObject == null)
+            else if (touch.phase == TouchPhase.Moved && spawnedObject != null)
             {
-                //Создание копии modelPrefab в точке касания с правильным вращением
-                spawnedObject = Instantiate(modelPrefab, hitPose.position, hitPose.rotation);
-
-                Vector3 lookDirection = arCamera.transform.position - hitPose.position;
-                lookDirection.y = 0; //ликвидация наклона
-                spawnedObject.transform.rotation = Quaternion.LookRotation(lookDirection);
+                spawnedObject.transform.position = _hits[0].pose.position;
             }
-            else
+            if (touch.phase == TouchPhase.Ended)
             {
-                spawnedObject.transform.SetPositionAndRotation(hitPose.position, hitPose.rotation);
+                spawnedObject = null;
             }
         }
+    }
+
+    private void SpawnPrefab(Vector3 spawnPosition)
+    {
+        spawnedObject = Instantiate(modelPrefab, spawnPosition, Quaternion.identity);
     }
 }
 //ОН СЪЕЛ У МЕНЯ 10 МОРКОВКА, 3 КИЛОГРАММ СТОЛЯРНЫЙ КЛЕЙ И СОВСЕМ НОВЫЙ ПЛОСКОГУБЦЫ!!!
