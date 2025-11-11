@@ -2,6 +2,7 @@ using UnityEngine;
 using ZXing;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class QrCodeScanner : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class QrCodeScanner : MonoBehaviour
     [SerializeField]
     private RectTransform _scanZone;
 
+    private DontDestroy dontDestroy;
     private bool _isCamAvailable;
     private WebCamTexture _cameraTexture;
 
@@ -32,23 +34,23 @@ public class QrCodeScanner : MonoBehaviour
 
     private void SetUpCamera()
     {
-        WebCamDevice [] devices = WebCamTexture.devices;
-        
-        if(devices.Length == 0 )
+        WebCamDevice[] devices = WebCamTexture.devices;
+
+        if (devices.Length == 0)
         {
             _isCamAvailable = false;
             return;
         }
-        for( int i = 0; i < devices.Length; i++ )
+        for (int i = 0; i < devices.Length; i++)
         {
-            if (devices[i].isFrontFacing==false)
+            if (devices[i].isFrontFacing == false)
             {
                 _cameraTexture = new WebCamTexture(devices[i].name, (int)_scanZone.rect.width, (int)_scanZone.rect.height);
             }
         }
         _cameraTexture.Play();
         _rawImageBackground.texture = _cameraTexture;
-        _isCamAvailable=true;
+        _isCamAvailable = true;
     }
 
     private void UpdateCameraRender()
@@ -71,10 +73,23 @@ public class QrCodeScanner : MonoBehaviour
     {
         try
         {
+            dontDestroy = GameObject.Find("ModelSpawner").GetComponent<DontDestroy>();
             IBarcodeReader barcodeReader = new BarcodeReader();
             Result result = barcodeReader.Decode(_cameraTexture.GetPixels32(), _cameraTexture.width, _cameraTexture.height);
-            if (result != null) //result == "ключевое слово"
-                _textOut.text = result.Text; // SceneManager.LoadScene("переход на сцену 2");
+            if (result != null)
+            {
+                _textOut.text = result.Text;
+                string qrText = result.Text;
+                string[] parts = qrText.Split('|');
+                string sceneName = parts[0];
+                string modelName = parts[1];
+                dontDestroy.modelName = modelName;
+                //PlayerPrefs.SetString("ModelName", modelName);
+                //PlayerPrefs.Save();
+                Debug.Log($"[QrCodeScanner] Сохранена ModelName = {modelName}");
+
+                SceneManager.LoadScene(sceneName);
+            }
             else
                 _textOut.text = "FAILED TO READ QR CODE";
         }
