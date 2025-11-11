@@ -1,14 +1,14 @@
 :root {
     /* Colors */
-    --accent-color: #bd3434;
+    --accent-color: #C82323;
 
     --bg-color: #eed7c5;
 
-    --color-main: #CF765C;
-    --color-alt: #F9B390;
+    --header-color-main: #CF765C;
+    --header-color-alt: #F9B390;
 
     --text-orange-color: #F97E60;
-    --text-light-color: #ccc;
+    --text-light-color: #FFFFFF;
 
 
     /* Animations */
