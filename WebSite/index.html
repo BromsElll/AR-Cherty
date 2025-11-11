@@ -4,47 +4,163 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-    <title>СААААААААААААЙТ</title>
+    <title>AR-Website</title>
 </head>
 
-<body>
-    
-    <!-- ########## ШАПКА ########## -->
-    <header class="header">
-        <div class="container">
-            <div class="header_group">
-                <div class="logo">
-                    <h1 class="logo_title">НИИЧАВО</h1>
-                </div>
-                <ul class="menu">
-                    <li><a class="menu__link" href="#">ГЛАВНАЯ</a></li>
-                    <li><a class="menu__link" href="#">КОНТАКТЫ</a></li>
-                    <li><a class="menu__link" href="#">МУЗЕЙ</a></li>   
-                </ul>
-            </div>
-        </div>
-    </header>
-
-    <!-- ########## ОСНОВА ########## -->
-    <main>
+<body> 
     <div class="background">
-        <div class="container_background">
-            <div class="main-inf">
-                <h2 class="blocks-card_title">НИИЧАВО  -  Научно-исследовательский институт Чародейства и Волшебства</h2>
-                <p class="blocks-card_text text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas similique unde deleniti voluptatum vel! Porro, quibusdam? At velit eveniet accusantium odio maxime consequuntur libero corporis vero repellat, neque a beatae animi. Laboriosam at accusamus eius qui error deleniti quis sed. </p>
-                <p class="blocks-card_text text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas similique unde deleniti voluptatum vel! Porro, quibusdam? At velit eveniet accusantium odio maxime consequuntur libero corporis vero repellat, neque a beatae animi. Laboriosam at accusamus eius qui error deleniti quis sed. </p>
-                
-            </div>
-            <div class="QR-container">
-                <img src="./assets/images/QR_EXAMPLE.png" alt="Background Image" class="picture">
-                <img src="./assets/images/qr-code.gif" alt="QR Code" class="qr-code">
-            </div>
-        </div>
+        <img src="assets\images\bg.png">
     </div>
     
+    <!-- header-->
+    <header class="header">
+    <nav>
+        <div class="nav-logo">
+            <a href="#" >
+                <img src="assets\images\logo.png" >
+            </a>
+        </div>
+       <ul class="nav-links">
+            <li class="link"><a href="#">Спонсортсво</a></li>
+            <li class="link"><a href="#">Пожертвования</a></li>
+            <li class="link"><a href="#">Донат</a></li>
+            <li class="link"><a href="#">Поддержка проекта</a></li>
+            <li class="link"><a href="#"></a></li>
+       </ul>
+       <button class="btn">войти</button>
+    </nav>
+    </header>
+
+    
+    <!-- main-content-->
+    <main>
+    <div class="container">
+        
+        <div class="content">
+            <div class="main-inf">
+                <h1 class="main_title">
+                    <span class="main_title__text-letter">MЫ</span>
+                    НИИЧАВО 
+                </h1>
+                <h2 class="main_title__footer">Научно-исследовательский институт Чародейства и Волшебства</h2>
+
+                <p class="main_title__text"> Работаем уже более 1000 лет в суровых условиях Карельской природы, без еды, воды и солнечного света.
+                    Мы питаемся учением Маркса и Ленина и живём верой в светлое будущее. Наш Институт является самым передовым в стране, именно мы создаём завтрашний день. 
+                    Но, нашему ОЧЕНЬ дружному коллективу требуется пополнение. 
+                    Как настоящий коммунист просто не может существовать не имея полного собранения сочинений В.И. Ленина в 55 томах (кстати, которые вы можете купить на нашем сайте всего лишь за 70 000 рублей), 
+                    так и мы не сможем выжить без программиста.
+                </p>   
+                <p class="main_title__text"> Поэтому, НИИЧАВО приглашает в Институт программиста, соотвествующего следующим критериям:<br>
+                </p> 
+                <ul class="main_title__text">
+                    <li>a) небалованный</li>
+                    <li>b) доброволец</li>
+                    <li>c) согласен жить в общежитии</li>
+                    <li>d) бородатый</li>
+                </ul>
+                </p>   
+                <p class="main_title__text"> Заработная плата -  <s>120 руб</s> 20 руб</p> 
+            </div>
+        </div>
+        <div class="content">
+            <h2 class="content-QR-text">ОБЪЕКТ-0001 Жрущий гном “Тимофей”</h2>
+            <div class="content-QR">
+                <div class="QR-left">
+                    <div class="QR-scan">
+                        <img class="qr-img" src="./assets/images/qr-code.gif">
+                        <h4>1 СКАН<br>1000 рублей</h4>
+                    </div>  
+                    <!-- <div class="QR-images">
+                        <img class="qr-img" src="./assets/images/PSI.png">
+                        <img class="qr-img" src="./assets/images/RAD.png">
+                        <img class="qr-img" src="./assets/images/Skull.png">
+                    </div> -->
+                    <p class="QR-main_text">
+                        Описание: Жрущий Гном, прозванный Тимофеем - опасный объект, 
+                        который попал в Институт в результате засекреченной операции в  лесу где-то в Карельской области. Объект, 
+                        или же существо представляет большую опасность. Питается “Тимофей” только людьми. 
+                        Известен случай когда (неизвестный человек) во время похода за грибами случайно оступился и провалился в пасть гному.
+                        Тимофей вкусно покушал... 
+                        Дальнейшая информация нуждается в учтонении...
+                        Тимофей хочет есть... 
+                    </p>
+                </div>    
+                
+                <div class="QR-right">
+                    <img class="QR-preview" src="./assets/images/QR_EXAMPLE.png">
+                                         
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2 class="content-QR-text">ОБЪЕКТ-0001 Жрущий гном “Тимофей”</h2>
+            <div class="content-QR">
+                <div class="QR-left">
+                    <div class="QR-scan">
+                        <img class="qr-img" src="./assets/images/qr-code.gif">
+                        <h4>1 СКАН<br>1000 рублей</h4>
+                    </div>  
+                    <!-- <div class="QR-images">
+                        <img class="qr-img" src="./assets/images/PSI.png">
+                        <img class="qr-img" src="./assets/images/RAD.png">
+                        <img class="qr-img" src="./assets/images/Skull.png">
+                    </div> -->
+                    <p class="QR-main_text">
+                        Описание: Жрущий Гном, прозванный Тимофеем - опасный объект, 
+                        который попал в Институт в результате засекреченной операции в  лесу где-то в Карельской области. Объект, 
+                        или же существо представляет большую опасность. Питается “Тимофей” только людьми. 
+                        Известен случай когда (неизвестный человек) во время похода за грибами случайно оступился и провалился в пасть гному.
+                        Тимофей вкусно покушал... 
+                        Дальнейшая информация нуждается в учтонении...
+                        Тимофей хочет есть... 
+                    </p>
+                </div>    
+                
+                <div class="QR-right">
+                    <img class="QR-preview" src="./assets/images/QR_EXAMPLE.png">
+                                         
+                </div>
+            </div>
+        </div>
     </main>
-    <!-- <div class="footer">
-        <p>ПОДВАЛ</p>
-    </div> -->
+
+    <!-- footer-->
+    <footer class="footer-section">
+        <div class="bottom-content">
+            <div class="logo-copyrites">
+                <img src="assets\images\logo.png">
+                <img class="Russia-ministry" src="assets\images\ministry.png">
+            </div>
+            <ul class="Titled-List inf-container">
+                </li class="Titled-List inf ">
+                    <div class="inf">
+                        <p>Юридический адрес</p>
+                        <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        </a>
+                    </div>
+
+                    
+                </li>
+                </li class="Titled-List inf">
+                    <div class="inf">
+                        <p>Юридический адрес</p>
+                        <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        </a>
+                    </div>
+                </li>
+                </li class="Titled-List inf">
+                    <div class="inf">
+                        <p>Юридический адрес</p>
+                        <a href="#"> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            
+        </div>
+    </footer>
 </body>
-</html>
+</html> 
+
+
