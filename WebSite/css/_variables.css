@@ -1,3 +1,4 @@
+/* root */
 :root {
     /* Colors */
     --accent-color: #bd3434;
@@ -5,7 +6,7 @@
     --bg-color: #eed7c5;
 
     --color-main: #CF765C;
-    --color-alt: #F9B390;
+    --color-alt: #ecbaa1;
 
     --text-orange-color: #F97E60;
     --text-light-color: #ccc;
@@ -14,4 +15,3 @@
     /* Animations */
     --transition: 0.2s ease-in-out;
 }
-

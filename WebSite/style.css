@@ -21,16 +21,7 @@ p{
     font-size: 18px;
 }
 
-/* background*/
-
-.background img{
-    position: absolute;
-    max-width: 100%;
-    filter: blur(3px);
-}
-
 /* navigation */
-
 header{
    position: relative;
    max-width: 100%; 
@@ -72,6 +63,10 @@ nav{
     color: var(--text-light-color);
 }
 
+.container_bg{
+    background-image: url("/assets/images/bg.png");
+}
+
 .container{
     position: relative;
     min-width: 60%;
@@ -88,7 +83,6 @@ nav{
 }
 
 /* Advertisement */
-
 .main-inf{
     width: 100%;
     margin: 4rem 1rem 1rem;
@@ -109,6 +103,7 @@ nav{
     line-height: 100px; 
     border-bottom: 0.5rem solid var(--accent-color); 
 }
+
 .main_title__footer{
     color: #000;
     font-size: 30px;
@@ -127,7 +122,6 @@ nav{
 .content-QR-text{
     margin: 4rem 1rem 1rem;
     font-size: 50px;
-    border-bottom: 0.2rem solid #000; 
     background-color: #f3b6a68e;
     padding: 2rem;
     border-radius: 15px;
@@ -188,39 +182,46 @@ nav{
     position: relative;
     display: flex;
     justify-content: center;
-    background: radial-gradient(circle,rgba(243, 181, 166, 0.78) 38%, rgba(243, 181, 166, 1) 89%);    
-    border-top: 0.1rem solid #00000075; 
-    padding: 5rem;
+    /* background: radial-gradient(circle,rgba(243, 181, 166, 0.78) 38%, rgba(243, 181, 166, 1) 89%);     */
+    background-color: var(--color-alt);
+    margin: 0rem 6rem;
+    padding: 0 5rem;
     bottom: 0;
 }
 
 .bottom-content{ 
-    display: flex;
+    display: flex;  
     width: 1440px;
+    margin: 5rem;
+    gap: 20px;
 }
 
 .Russia-ministry{
-    position: relative;
     height: auto;
     display: flex;
+}
 
+.Titled{
+    padding: 2rem;
+    padding-bottom: 5rem;
+    background-color: #eed7c5ab;
+    border-radius: 5px;
+    min-width: 300px;
+}
+
+.Titled-List h2{
+    border-bottom: 0.5rem solid #b6141475; 
 }
 
 .Titled-List {
-    margin: auto;
-    margin-right: 0;
-    margin-top: 0;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    
+    gap: 25px;  
 }
 
 .inf{
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 10px;   
+    justify-content: space-between;
 }
 
 .inf p{
