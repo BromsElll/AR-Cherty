@@ -64,7 +64,7 @@ nav{
 }
 
 .container_bg{
-    background-image: url("/assets/images/bg.png");
+    background-image: url("assets/images/bg.png");
 }
 
 .container{
